@@ -7,13 +7,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _urlController = TextEditingController(text: 'https://github.com/');
+    final urlController =
+        TextEditingController(text: 'https://github.com/tushar422');
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final bottom = MediaQuery.of(context).viewInsets.bottom;
     const bgHeight = 300.0;
 
-    print('$height x $width, bottom: $bottom');
+    // print('$height x $width, bottom: $bottom');
 
     return Scaffold(
       body: Stack(
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Center(
                 child: TextField(
-                  controller: _urlController,
+                  controller: urlController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Theme.of(context).colorScheme.surface,
@@ -64,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) {
                       return WebviewScreen(
-                        url: _urlController.text.trim(),
+                        url: urlController.text.trim(),
                       );
                     },
                     settings: const RouteSettings(name: '/webpage'),
